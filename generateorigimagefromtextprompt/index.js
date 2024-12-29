@@ -9,10 +9,11 @@ const openai = new OpenAI({
 });
 
 const image = await openai.images.generate({
-  prompt: "An astronaut riding a bicycle on the moon"
+  model: "dall-e-2",
+  n: 3,
+  prompt: "A colorful image of an astronaut cycling on the moon, with a vibrant Earth in the background. Include glowing tire tracks, colorful alien plants, and crystals on the lunar surface"
 });
 console.log(image.data);
-
 /**
  * output:[
   {
