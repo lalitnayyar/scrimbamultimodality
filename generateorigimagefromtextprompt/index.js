@@ -6,9 +6,8 @@ const openai = new OpenAI({
 
 const image = await openai.images.generate({ 
   model: "dall-e-3", 
-  prompt: "A photograph of a rich, golden-brown espresso shot topped with perfect crema in a classic ceramic cup",
+  prompt: "A detailed sticker of an astronaut's helmet. The visor is reflecting Earth from space, showing continents from a distance. The helmet should appear metallic, with visible knobs, ridges, and a sense of depth, styled in black and white with high contrast against a light background",
   size: "1792x1024",
-  quality: "hd",
   style: "natural"
 })
 console.log(image.data);
