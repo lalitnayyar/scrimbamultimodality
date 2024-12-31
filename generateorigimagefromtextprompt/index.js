@@ -4,12 +4,12 @@ const openai = new OpenAI({
     dangerouslyAllowBrowser: true,
 });
 
-const image = await openai.images.generate({ 
-  model: "dall-e-3", 
-  prompt: "A detailed sticker of an astronaut's helmet. The visor is reflecting Earth from space, showing continents from a distance. The helmet should appear metallic, with visible knobs, ridges, and a sense of depth, styled in black and white with high contrast against a light background",
-  size: "1792x1024",
-  style: "natural"
-})
-console.log(image.data);
+const image = await openai.images.edit({ 
+  image: await fetch("images/building.png"),
+  mask: await fetch("images/mask.png"),
+  prompt: "A modern building with an eco-friendly entrance consisting of plants, flowers, and palm trees",
+  response_format: "b64_json",
+  size: "256x256"
+});
 
-document.body.innerHTML = `<img src="${image.data[0].url}" alt="AI-generated image">`;
+document.body.innerHTML = `<img src="data:image/png;base64,${image.data[0].b64_json}" alt="AI-generated image">`;
